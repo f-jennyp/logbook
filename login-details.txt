@@ -1,0 +1,6 @@
+Database Name: grocery_loan
+
+**Login Details**
+
+Username: admin@mail.com
+Password: admin
