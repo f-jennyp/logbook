@@ -69,7 +69,7 @@ if (isset($_POST['save'])) {
         <div class="col-sm-4">Gender</div>
         <div class="col-sm-5">
             <select name="gender" class="form-control" required>
-            <option value="" disabled selected>Select Gender</option>
+                <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>

@@ -1,23 +1,19 @@
 <?php
 session_start();
 
-	include('connection.php');
-		extract($_POST);
-	if(isset($login))
-	{
-        $pass=sha1($pass);
-		$que=mysqli_query($conn,"select * from admin where user='$email' and pass='$pass'");
-		$row=mysqli_num_rows($que);
-		if($row)
-			{	
-				$_SESSION['admin']=$email;
-				header('location:admin');
-			}
-		else
-			{
-				$err="<font color='red'>Wrong Email or Password!</font>";
-			}
-	}
+include('connection.php');
+extract($_POST);
+if (isset($login)) {
+    $pass = sha1($pass);
+    $que = mysqli_query($conn, "select * from admin where user='$email' and pass='$pass'");
+    $row = mysqli_num_rows($que);
+    if ($row) {
+        $_SESSION['admin'] = $email;
+        header('location:admin');
+    } else {
+        $err = "<font color='red'>Wrong Email or Password!</font>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +27,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GL - Login Panel</title>
+    <title>Logbook - Login Panel</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,13 +42,16 @@ session_start();
 
 <body style="background:#CCCCCC">
 
-    <div class="container" >
+    <div class="container">
         <div class="row" style="margin-top:20px">
             <div class="col-md-4 col-md-offset-4">
-            <h4 class="text-center">Grocery Loan</h4>
+                <div style="text-align: center;">
+                    <img style="width: 150px; margin: auto;" src="images/logo.png" width="100%" />
+                </div>
+                <h4 class="text-center">Visitors Attendance Logbook | TECH4ED</h4>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Log In to continue...</h3>
+                        <h3 class="panel-title">Please log in</h3>
                     </div>
                     <div class="panel-body">
                         <form method="post">
@@ -63,19 +62,19 @@ session_start();
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="pass" type="password" required>
                                 </div>
-                                
-                                
-								<div class="form-group">
+
+
+                                <div class="form-group">
                                     <input name="login" type="submit" value="Login" class="btn btn-md btn-success btn-block">
                                 </div>
-								
-								<div class="form-group">
+
+                                <div class="form-group">
                                     <label>
-                                        <?php echo @$err;?>
+                                        <?php echo @$err; ?>
                                     </label>
                                 </div>
-								
-                                
+
+
                             </fieldset>
                         </form>
                     </div>
