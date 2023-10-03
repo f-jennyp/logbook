@@ -1,5 +1,5 @@
 <?php
-include('db_connection.php');
+include('connection.php');
 
 $search = $_POST['searchRecord'];
 $searchDate = date('Y-m-d', strtotime($search));
@@ -11,18 +11,9 @@ if (!$rr) {
 } else {
 ?>
 
-    <h2 align="center">Search Results</h2>
+    <h2 align="center">Printable Search Results</h2>
     <table class="table table-bordered">
 
-        <tr>
-            <td colspan="16">
-                <a href="index.php?page=display_record"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-chevron-left"></span> Back</button></a>
-
-                <a title="Print Records" href="RECORD/print_search_results.php" target="_blank">
-                    <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-print"></span> Print</button>
-                </a>
-            </td>
-        </tr>
         <Tr class="active">
             <th>NO</th>
             <th><?php
@@ -40,7 +31,6 @@ if (!$rr) {
             <th>GENDER</th>
         </Tr>
         <?php
-
 
         $i = 1;
         while ($row = mysqli_fetch_assoc($q)) {

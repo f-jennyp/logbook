@@ -18,7 +18,17 @@ $q = mysqli_query($conn, "select * from attendance");
         </form>
     </tr>
     <tr>
-        <td colspan="6"><a href="index.php?page=create_attendance"><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span> Attendance</button></a></td>
+        <td colspan="6">
+
+            <a href="index.php?page=create_attendance">
+                <button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span> Attendance</button>
+            </a>
+
+            <a title="Print Records" href="RECORD/print_record.php?">
+                <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-print"></span> Print</button>
+            </a>
+
+        </td>
     </tr>
     <Tr class="active">
         <th>NO</th>
