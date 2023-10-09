@@ -1,4 +1,5 @@
 <?php
+include('../connection.php');
 if (isset($_POST['save'])) {
 
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);

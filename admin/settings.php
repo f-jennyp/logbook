@@ -1,4 +1,6 @@
 <?php
+include('../connection.php');
+
 extract($_POST);
 if (isset($save)) {
 	if ($np == "" || $cp == "" || $op == "") {
@@ -26,6 +28,23 @@ if (isset($save)) {
 		}
 	}
 }
+
+if (isset($_POST['clear_attendance']) && isset($_POST['confirm_clear'])) {
+    if ($_POST['confirm_clear'] === 'yes') {
+        $sql = "TRUNCATE TABLE `attendance`";
+
+        if (mysqli_query($conn, $sql)) {
+            $err = "<script>alert('Attendance table has been cleared successfully.');</script>";
+        } else {
+            echo "Error clearing the attendance table: " . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
+    } else {
+        $err = "<script>alert('Attendance table has NOT been cleared.');</script>";
+    }
+}
+
 ?>
 
 <h2>Update Password</h2>
@@ -72,6 +91,25 @@ if (isset($save)) {
 	
 </form>
 
+<h2>Clear Attendance</h2>
+<form method="post">
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <?php echo @$err; ?>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 15px">
+        <div class="col-sm-4">
+            <input type="submit" value="Clear Attendance" name="clear_attendance" class="btn btn-danger" onclick="return confirm('Are you sure you want to clear attendance? This action cannot be undone.');">
+            <input type="hidden" name="confirm_clear" value="yes">
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+</form>
 
 <div style="text-align: center; margin-top: 50px; color:gray; font-size: 11px">
     &copy; 2023 All Rights Reserved.

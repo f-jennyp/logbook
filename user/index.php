@@ -1,11 +1,3 @@
-<?php
-session_start();
-include('../connection.php');
-$admin = $_SESSION['admin'];
-if ($admin == "") {
-	header('location:../index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +10,7 @@ if ($admin == "") {
 	<link rel="icon" href="../../favicon.ico">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-	<title>Admin Dashboard</title>
+	<title>User Dashboard</title>
 
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -47,8 +39,6 @@ if ($admin == "") {
 				<li><a href="index.php"><span class="fas fa-menorah"></span> Dashboard</a></li>
 					<li><a href="index.php?page=create_attendance"><span class="fas fa-chart-bar"></span> Attendance</a></li>
 					<li><a href="index.php?page=display_record"><span class="fas fa-database"></span> Record</a></li>
-					<li><a href="index.php?page=settings"><span class="fas fa-cog"></span> Settings</a></li>
-					<li><a href="logout.php"><span class="fas fa-sign-out-alt"></span> Logout</a></li>
 				</ul>
 
 			</div>
@@ -67,8 +57,6 @@ if ($admin == "") {
 					<li><a href="index.php"><span class="fas fa-menorah"></span> Dashboard</a></li>
 					<li><a href="index.php?page=create_attendance"><span class="fas fa-chart-bar"></span> Attendance</a></li>
 					<li><a href="index.php?page=display_record"><span class="fas fa-database"></span> Record</a></li>
-					<li><a href="index.php?page=settings"><span class="fas fa-cog"></span> Settings</a></li>
-
 
 				</ul>
 
