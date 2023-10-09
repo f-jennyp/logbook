@@ -1,11 +1,14 @@
 <?php
 session_start();
 include('../connection.php');
-$admin = $_SESSION['admin'];
-if ($admin == "") {
-	header('location:../index.php');
+if(isset($_SESSION['admin'])) {
+    $admin = $_SESSION['admin'];
+} else {
+    header('location:../index.php');
+    exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
